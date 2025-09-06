@@ -30,7 +30,7 @@ def pipeline():
     plt.plot(psi.x, np.abs(psi.psi)**2, label='|psi_out(x)|^2', alpha=0.8)
     plt.legend(); plt.xlabel('x'); plt.ylabel('Probability density'); plt.title('Input vs Output (x-space)')
     plt.tight_layout()
-    fig1_path = 'artifacts/faqa_proto_out_x.png'
+    fig1_path = 'result/faqa_proto_out_x.png'
     os.makedirs(os.path.dirname(fig1_path), exist_ok=True)
     plt.savefig(fig1_path)
 
@@ -40,7 +40,7 @@ def pipeline():
     plt.plot(k, np.abs(psi_k)**2, label='|psi_out(k)|^2')
     plt.legend(); plt.xlabel('k'); plt.ylabel('Spectral density'); plt.title('Output (k-space)')
     plt.tight_layout()
-    fig2_path = 'artifacts/faqa_proto_out_k.png'
+    fig2_path = 'result/faqa_proto_out_k.png'
     plt.savefig(fig2_path)
 
     # Homodyne samples
@@ -50,15 +50,15 @@ def pipeline():
     plt.plot(psi.x, np.abs(psi.psi)**2, label='|psi_out(x)|^2')
     plt.legend(); plt.xlabel('x'); plt.ylabel('density'); plt.title('Measurement vs theoretical density')
     plt.tight_layout()
-    fig3_path = 'artifacts/faqa_proto_measure.png'
+    fig3_path = 'result/faqa_proto_measure.png'
     plt.savefig(fig3_path)
 
     return {
         'x_mean_in': float(x_mean_in),
         'x_mean_out': float(x_mean_out),
-        'fig_x': fig1_path,
-        'fig_k': fig2_path,
-        'fig_meas': fig3_path
+    'fig_x': fig1_path,
+    'fig_k': fig2_path,
+    'fig_meas': fig3_path
     }
 
 if __name__ == "__main__":
